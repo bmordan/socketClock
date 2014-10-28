@@ -1,0 +1,27 @@
+<link ref="stylesheet" type="text/css" href="../style.css" >
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<style>
+  body{
+    background: rgb(0,0,0);
+    color: rgb(255,255,255);
+  }
+  header{
+    width: 50%;
+    margin: auto;
+    padding-top: 10%;
+    font-size: 400%;
+  }
+</style>
+
+<header><h1></h1></header>
+
+<script>
+  var socket = io.connect('http://localhost');
+  socket.on('updateTime', function(data){
+    $('h1').text(data.updateTime)
+    console.log(data)
+  });
+</script>
+
